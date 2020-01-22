@@ -55,10 +55,7 @@ export default class AddGroupsToTeamModal extends React.Component {
     }
 
     componentDidMount() {
-        Promise.all([
-            this.props.actions.getGroupsNotAssociatedToTeam(this.props.currentTeamId, '', 0, GROUPS_PER_PAGE + 1),
-            this.props.actions.getAllGroupsAssociatedToTeam(this.props.currentTeamId),
-        ]).then(() => {
+        this.props.actions.getGroupsNotAssociatedToTeam(this.props.currentTeamId, '', 0, GROUPS_PER_PAGE + 1).then(() => {
             this.setGroupsLoadingState(false);
         });
     }
